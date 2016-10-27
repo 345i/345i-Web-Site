@@ -4,6 +4,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
 	include 'div2.php';
 else
 	include 'div1.php';
+
+
 ?>
 </div>
 <!-- Container (About Section) -->
@@ -84,6 +86,7 @@ Costruire il nostro futuro su basi solide e innovative.</h4><br>
 </div>
 
 
+
 <!-- Container (Contact Section) -->
 <div id="contact" class="container-fluid bg-grey">
   <h2 class="text-center">CONTACT</h2>
@@ -113,21 +116,7 @@ Costruire il nostro futuro su basi solide e innovative.</h4><br>
   </div>
 </div>
 
-<?php
-if($_SERVER['REQUEST_METHOD'] == "POST")
-{
-	$email = "<?php " . $_POST['email'] . " ?>";
-	echo $email;
-	$file_mail = fopen("email_list.php", "a+");
-	fwrite($file_mail, $email . "\n");
-	fclose($file_mail);
-	$lines = file('email_list.php');
-    $lines = array_unique($lines);
-	file_put_contents('email_list.php', $lines);
-	$headers = 'From: 345-I Co. <345-I@gmail.it>' . "\r\n";
-	//mail($email, "Iscrizione alla newsletter", "La ringraziamo per essersi iscritto alla nostra newsletter. Buona giornata.", $headers);
-}
-?>
+
 
 <footer class="container-fluid text-center">
   <a href="#myPage" title="To Top">
